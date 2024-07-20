@@ -1,5 +1,6 @@
 ## Folder
 
+```
 project-root
 │
 ├── src
@@ -28,6 +29,7 @@ project-root
 ├── package.json
 │
 └── ...
+```
 
 ## skill
 
