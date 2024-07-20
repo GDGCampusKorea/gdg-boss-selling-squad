@@ -1,16 +1,14 @@
-import { QueryClient } from "@tanstack/react-query";
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import { QueryClient } from '@tanstack/react-query';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-export const API_ENDPOINT = "https://api.gdg-campus.com/v1";
+export const API_ENDPOINT = 'https://api.gdg-campus.com/v1';
 
-export const initFetchInstance = (
-  config: AxiosRequestConfig
-): AxiosInstance => {
+export const initFetchInstance = (config: AxiosRequestConfig): AxiosInstance => {
   const instance = axios.create({
     timeout: 5000,
     ...config,
     headers: {
-      Accept: "application/json",
+      Accept: 'application/json',
       ...config.headers,
     },
   });

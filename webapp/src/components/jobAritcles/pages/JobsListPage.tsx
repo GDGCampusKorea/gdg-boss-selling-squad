@@ -1,7 +1,7 @@
-import { AppScreen, cssVars } from "@stackflow/plugin-basic-ui";
-import AsyncBoundary from "../../AsyncBoundary";
-import { styled } from "@linaria/react";
-import FeedCard from "../components/FeedCard";
+import { AppScreen, cssVars } from '@stackflow/plugin-basic-ui';
+import AsyncBoundary from '../../AsyncBoundary';
+import { styled } from '@linaria/react';
+import FeedCard from '../components/FeedCard';
 import {
   PosAbsFull,
   FlexColumn,
@@ -10,15 +10,15 @@ import {
   FlexAlignCenter,
   Flex1,
   OverflowScroll,
-} from "../../../styles/f";
-import { useJobArticles } from "../../../api/hooks/useGetJobArticles";
+} from '../../../styles/f';
+import { useJobArticles } from '../../../api/hooks/useGetJobArticles';
 
 export const JobsListPage = () => {
   return (
     <AsyncBoundary>
       <AppScreen
         appBar={{
-          title: "Jobs",
+          title: 'Jobs',
         }}
       >
         <JobsList />

@@ -1,5 +1,5 @@
-import { styled } from "@linaria/react";
-import { vars } from "@seed-design/design-token";
+import { styled } from '@linaria/react';
+import { vars } from '@seed-design/design-token';
 
 export const Grid = styled.div`
   display: grid;

@@ -1,18 +1,10 @@
-import { ErrorBoundary, ErrorBoundaryProps } from "@sentry/react";
-import {
-  ComponentProps,
-  forwardRef,
-  Ref,
-  Suspense,
-  SuspenseProps,
-  useImperativeHandle,
-  useRef,
-} from "react";
+import { ErrorBoundary, ErrorBoundaryProps } from '@sentry/react';
+import { ComponentProps, forwardRef, Ref, Suspense, SuspenseProps, useImperativeHandle, useRef } from 'react';
 
-type Props = Omit<SuspenseProps, "fallback"> &
-  Omit<ErrorBoundaryProps, "fallback"> & {
-    rejectedFallback?: ComponentProps<typeof ErrorBoundary>["fallback"];
-    pendingFallback?: ComponentProps<typeof Suspense>["fallback"];
+type Props = Omit<SuspenseProps, 'fallback'> &
+  Omit<ErrorBoundaryProps, 'fallback'> & {
+    rejectedFallback?: ComponentProps<typeof ErrorBoundary>['fallback'];
+    pendingFallback?: ComponentProps<typeof Suspense>['fallback'];
   };
 
 interface ResetRef {
@@ -20,15 +12,7 @@ interface ResetRef {
 }
 
 const AsyncBoundary = forwardRef(
-  (
-    {
-      pendingFallback,
-      rejectedFallback,
-      children,
-      ...errorBoundaryProps
-    }: Props,
-    resetRef: Ref<ResetRef>
-  ) => {
+  ({ pendingFallback, rejectedFallback, children, ...errorBoundaryProps }: Props, resetRef: Ref<ResetRef>) => {
     const ref = useRef<ErrorBoundary | null>(null);
 
     useImperativeHandle(resetRef, () => ({
@@ -36,11 +20,7 @@ const AsyncBoundary = forwardRef(
     }));
 
     return (
-      <ErrorBoundary
-        ref={ref}
-        {...errorBoundaryProps}
-        fallback={rejectedFallback ?? <></>}
-      >
+      <ErrorBoundary ref={ref} {...errorBoundaryProps} fallback={rejectedFallback ?? <></>}>
         <Suspense fallback={pendingFallback ?? <></>}>{children}</Suspense>
       </ErrorBoundary>
     );

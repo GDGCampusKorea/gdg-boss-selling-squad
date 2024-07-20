@@ -1,15 +1,9 @@
-import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useFlow } from "../../../lib/stackflow"; // Import useFlow from stackflow
-import { styled } from "@linaria/react";
-import { vars } from "@seed-design/design-token";
-import {
-  Flex,
-  ResetButton,
-  CursorPointer,
-  OverflowHidden,
-  Flex1,
-} from "../../../styles/f";
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useFlow } from '../../../lib/stackflow'; // Import useFlow from stackflow
+import { styled } from '@linaria/react';
+import { vars } from '@seed-design/design-token';
+import { Flex, ResetButton, CursorPointer, OverflowHidden, Flex1 } from '../../../styles/f';
 
 interface FeedCardProps {
   articleId: string;
@@ -19,19 +13,13 @@ interface FeedCardProps {
   daysAgo: number;
 }
 
-export const FeedCard: React.FC<FeedCardProps> = ({
-  articleId,
-  title,
-  price,
-  region,
-  daysAgo,
-}) => {
+export const FeedCard: React.FC<FeedCardProps> = ({ articleId, title, price, region, daysAgo }) => {
   const { push } = useFlow();
 
   const imageUrl = `https://picsum.photos/800/800/?id=${articleId}`;
 
   const onClick = () => {
-    push("JobsArticleDetailPage", {
+    push('JobsArticleDetailPage', {
       articleId: String(articleId),
       title,
     });
@@ -48,12 +36,7 @@ export const FeedCard: React.FC<FeedCardProps> = ({
           <Price>{price.toLocaleString()}원</Price>
         </Left>
         <Thumbnail>
-          <LazyLoadImage
-            src={imageUrl}
-            effect="opacity"
-            width={108}
-            height={108}
-          />
+          <LazyLoadImage src={imageUrl} effect="opacity" width={108} height={108} />
         </Thumbnail>
       </Button>
     </Container>
