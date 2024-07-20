@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Stack } from "./stackflow";
+import { Stack } from "./lib/stackflow";
 
 const queryClient = new QueryClient();
 

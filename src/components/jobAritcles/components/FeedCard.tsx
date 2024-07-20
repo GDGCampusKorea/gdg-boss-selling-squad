@@ -1,6 +1,6 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useFlow } from "../../../stackflow"; // Import useFlow from stackflow
+import { useFlow } from "../../../lib/stackflow"; // Import useFlow from stackflow
 import { styled } from "@linaria/react";
 import { vars } from "@seed-design/design-token";
 import {

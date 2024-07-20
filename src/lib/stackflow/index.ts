@@ -1,8 +1,8 @@
 import { stackflow, useActions, useStepActions } from "@stackflow/react";
 import { basicRendererPlugin } from "@stackflow/plugin-renderer-basic";
 import { basicUIPlugin } from "@stackflow/plugin-basic-ui";
-import { JobsListPage } from "../components/jobs/pages/JobsListPage";
-import { JobsArticleDetailPage } from "../components/jobs/pages/JobsArticleDetailPage";
+import { JobsListPage } from "../../components/jobAritcles/pages/JobsListPage";
+import { JobsArticleDetailPage } from "../../components/jobArticleDetail/pages/JobsArticleDetailPage";
 
 const initStackflow = () => {
   return stackflow({
