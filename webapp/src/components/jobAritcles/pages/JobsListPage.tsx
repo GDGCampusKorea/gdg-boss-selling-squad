@@ -12,6 +12,7 @@ import {
   OverflowScroll,
 } from '../../../styles/f';
 import { useJobArticles } from '../../../api/hooks/useGetJobArticles';
+import { JobBanner } from '../components/JobBanner';
 
 export const JobsListPage = () => {
   return (
@@ -32,19 +33,30 @@ export const JobsList = () => {
 
   if (!data) return <>empty</>;
 
+  const enhancedData = [];
+  data.forEach((card, index) => {
+    if (index % 5 === 0 && index !== 0) {
+      enhancedData.push(<JobBanner key={`banner-${index}`} />);
+    }
+    enhancedData.push(
+      <FeedCard
+        key={card.articleId}
+        articleId={card.articleId}
+        title={card.title}
+        price={card.price}
+        region={card.region}
+        daysAgo={card.daysAgo}
+      />
+    );
+  });
+
+  enhancedData.unshift(<JobBanner key="banner-top" />);
+
   return (
     <Wrapper>
       <Scrollable>
-        {data.map((card) => (
-          <FeedCard
-            key={card.articleId}
-            articleId={card.articleId}
-            title={card.title}
-            price={card.price}
-            region={card.region}
-            daysAgo={card.daysAgo}
-          />
-        ))}
+        {enhancedData}
+        <JobBanner />
       </Scrollable>
     </Wrapper>
   );
