@@ -2,6 +2,7 @@ import { AppScreen, cssVars } from '@stackflow/plugin-basic-ui';
 import AsyncBoundary from '../../AsyncBoundary';
 import { styled } from '@linaria/react';
 import FeedCard from '../components/FeedCard';
+import CategorySlider from '../components/CategorySlider';
 import {
   PosAbsFull,
   FlexColumn,
@@ -33,7 +34,10 @@ export const JobsList = () => {
   if (!data) return <>empty</>;
 
   return (
-    <Wrapper>
+    <Wrapper> {/* ?? */}
+      <CategorySliderWrapper>
+        <CategorySlider />
+      </CategorySliderWrapper>
       <Scrollable>
         {data.map((card) => (
           <FeedCard
@@ -80,4 +84,12 @@ export const Scrollable = styled(Flex1)`
   @supports (padding-top: env(safe-area-inset-top)) {
     padding-top: calc(${cssVars.appBar.height} + env(safe-area-inset-top));
   }
+`;
+
+export const CategorySliderWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: #fff;
+  padding: 10px 0;
 `;
