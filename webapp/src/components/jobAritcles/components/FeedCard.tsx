@@ -72,6 +72,7 @@ export const Left = styled(Flex1)``;
 export const Title = styled.h1`
   font-size: 1rem;
   line-height: 1.375rem;
+  color: ${vars.$scale.color.gray200};
 `;
 
 export const Subtitle = styled.h2`
@@ -84,4 +85,5 @@ export const Price = styled.span`
   font-size: 0.875rem;
   font-weight: bold;
   line-height: 1.25rem;
+  color: ${vars.$scale.color.gray50};
 `;
