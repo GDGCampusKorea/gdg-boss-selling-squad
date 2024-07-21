@@ -28,16 +28,16 @@ export const FeedCard: React.FC<FeedCardProps> = ({ articleId, title, price, reg
   return (
     <Container>
       <Button onClick={onClick}>
-        <Left>
+        <Thumbnail>
+          <LazyLoadImage src={imageUrl} effect="opacity" width={108} height={108} />
+        </Thumbnail>
+        <Right>
           <Title>{title}</Title>
           <Subtitle>
             {region} · {daysAgo} days ago
           </Subtitle>
           <Price>{price.toLocaleString()}원</Price>
-        </Left>
-        <Thumbnail>
-          <LazyLoadImage src={imageUrl} effect="opacity" width={108} height={108} />
-        </Thumbnail>
+        </Right>
       </Button>
     </Container>
   );
@@ -67,7 +67,7 @@ export const Thumbnail = styled(OverflowHidden)`
   background-position: 50% 50%;
 `;
 
-export const Left = styled(Flex1)``;
+export const Right = styled(Flex1)``;
 
 export const Title = styled.h1`
   font-size: 1rem;
